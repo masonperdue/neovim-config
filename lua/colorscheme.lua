@@ -10,6 +10,9 @@ local function hi(group, opts)
     vim.api.nvim_set_hl(0, group, opts)
 end
 
+-- Use a solid line for a more modern look
+vim.opt.fillchars = { horiz = '━', horizup = '┻', horizdown = '┳', vert = '┃', vertleft = '┨', vertright = '┣', verthoriz = '╋' }
+
 --------------------------------------------------------------------------------
 -- UI Elements
 --------------------------------------------------------------------------------
@@ -19,6 +22,7 @@ hi("CursorLine",   { bg = "#161b22" }) -- Underline removed by not setting under
 hi("CursorLineNr", { fg = "#f0f6fc", bold = true })
 hi("Visual",       { bg = "#1f6feb" })
 hi("Search",       { fg = "#0d1117", bg = "#e3b341" })
+hi("WinSeparator", { fg = "#161b22", bg = "NONE" })
 hi("VertSplit",    { fg = "#30363d", bg = "NONE" })
 hi("EndOfBuffer",  { fg = "#79c0ff" })
 hi("StatusLine",   { fg = "#c9d1d9", bg = "#161b22" })

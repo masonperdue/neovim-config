@@ -1,4 +1,4 @@
--- https://github.com/m4xshen/autoclose.nvim/blob/main/lua/autoclose.lua
+-- Adapted from https://github.com/m4xshen/autoclose.nvim/blob/main/lua/autoclose.lua
 
 local autoclose = {}
 

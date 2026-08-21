@@ -1,29 +1,24 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
--- 1. Highlight on Yank
--- Briefly highlights the text you just copied (yanked)
 augroup("YankHighlight", { clear = true })
 autocmd("TextYankPost", {
     group = "YankHighlight",
     callback = function()
         vim.highlight.on_yank({
-            higroup = "Visual", -- Uses your theme's Visual highlight color
-            timeout = 200,      -- Duration in milliseconds
+            higroup = "Visual",
+            timeout = 200,
         })
     end,
 })
 
--- 2. Resize Splits on Terminal Resize
--- Automatically adjusts window sizes if you resize your terminal window
 autocmd("VimResized", {
     callback = function()
         vim.cmd("tabdo wincmd =")
     end,
 })
 
--- 3. Go to last loc when opening a buffer
--- Returns the cursor to the exact line/column you were on when you last closed the file
+-- Adapted from https://github.com/Folke/LazyVim
 autocmd("BufReadPost", {
     callback = function(event)
         local exclude = { "gitcommit", "gitrebase" }
@@ -39,8 +34,6 @@ autocmd("BufReadPost", {
     end,
 })
 
--- 4. Close certain windows with <q>
--- Makes it easier to close help, man pages, or quickfix windows
 autocmd("FileType", {
     pattern = { "help", "man", "lspinfo", "checkhealth" },
     callback = function(event)

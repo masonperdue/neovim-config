@@ -6,5 +6,5 @@ sudo apt remove --purge -y vim-common vim-tiny
 sudo apt autoremove --purge -y
 sudo apt install -y neovim
 mkdir -p /home/$USER/.config/nvim/lua/
-ln -sf /home/$USER/.myconfig/neovim-config/init.lua /home/$USER/.config/nvim/init.lua
-ln -sf /home/$USER/.myconfig/neovim-config/lua/* /home/$USER/.config/nvim/lua/
+ln -sf /home/$USER/.myconfig/neovim-config/nvim/init.lua /home/$USER/.config/nvim/init.lua
+ln -sf /home/$USER/.myconfig/neovim-config/nvim/lua/* /home/$USER/.config/nvim/lua/
